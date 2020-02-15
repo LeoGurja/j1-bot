@@ -1,0 +1,47 @@
+o:
+  one:
+    f: 'a'
+    m: 'o'
+  more:
+    f: 'as'
+    m: 'os'
+um:
+  one:
+    f: 'uma'
+    m: 'um'
+  more:
+    f: 'umas'
+    m: 'uns'
+a:
+  one:
+    f: 'à'
+    m: 'ao'
+    n: 'a'
+  more:
+    f: 'às'
+    m: 'aos'
+de:
+  one:
+    f: 'da'
+    m: 'do'
+    n: 'de'
+  more:
+    f: 'das'
+    m: 'dos'
+em:
+  one:
+    f: 'na'
+    m: 'no'
+    n: 'em'
+  more:
+    f: 'nas'
+    m: 'nos'
+por:
+  one:
+    f: 'pela'
+    m: 'pelo'
+    n: 'por'
+  more:
+    f: 'pelas'
+    m: 'pelos'
+    n: 'pelos'

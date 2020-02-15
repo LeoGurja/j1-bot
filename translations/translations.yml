@@ -1,0 +1,48 @@
+vítima: 
+  one: uma pessoa que eu conheço 
+  more: uns caras que eu conheço
+presidente:
+  one: monarca
+  more: monarcas
+coronavírus: 
+  always: herpes genital
+  gender: n
+o coronavírus: 
+  always: a herpes genital
+  number: one
+deputado: 
+  one: espírito da floresta
+  more: espíritos da floresta
+senador: 
+  one: lorde-elfo
+  more: lordes-elfo
+pesquisa: 
+  always: estudo
+estudo: 
+  one: post no tumblr
+  more: posts no tumblr
+eleição: 
+  one: competição de punheta
+  more: competições de punheta
+carro: 
+  one: gato
+  more: gatos
+elétrico: 
+  one: atómico
+  more: atómicos
+celular: 
+  one: pokédex
+  more: pokédex
+supostamente: 
+  always: talvez quem sabe
+bloco:
+  always: marcha das vadias
+morte:
+  always: batimento de botas
+  gender: m
+SP:
+  always: túmulo do samba
+  gender: m
+carnaval:
+  always: orgia
+  gender: f
