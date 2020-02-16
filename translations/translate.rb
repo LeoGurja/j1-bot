@@ -8,10 +8,11 @@ class Translate
     end
 
     def translate string
+        original = Text.new string, {}
         @text = Text.new string, @translations
         @text.translate
         output = @text.stringify
-        raise NotImplementedError if string == output
+        raise NotImplementedError if original.stringify == output
         output
     end
 end

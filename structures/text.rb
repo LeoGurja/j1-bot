@@ -2,7 +2,7 @@ require_relative './sentence'
 
 class Text
     def initialize string, translations
-        array = string.split /([\.,!?:\-'"])/
+        array = string.split /([\.,!?:;\-'"…]+)/
         @sentences = array.map { |sentence| Sentence.new sentence, translations }
     end
 

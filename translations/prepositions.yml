@@ -45,3 +45,12 @@ por:
     f: 'pelas'
     m: 'pelos'
     n: 'pelos'
+para:
+  one:
+    f: 'pra'
+    m: 'pro'
+    n: 'pra'
+  more:
+    f: 'pras'
+    m: 'pros'
+    n: 'pros'

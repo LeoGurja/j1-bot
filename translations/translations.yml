@@ -37,9 +37,13 @@ supostamente:
   always: talvez quem sabe
 bloco:
   always: marcha das vadias
+blocos:
+  always: marchas das vadias
 morte:
   always: batimento de botas
   gender: m
+São Paulo:
+  always: SP
 SP:
   always: túmulo do samba
   gender: m

@@ -5,7 +5,7 @@ class Sentence
     end
 
     def punctuation?
-        @words[0] =~ /[\.,\-'":;]/
+        @words =~ /[\.,\-'":;]+/
     end
     
     def translate
