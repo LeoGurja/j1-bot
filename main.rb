@@ -1,18 +1,13 @@
-require_relative './translations/translate'
-require_relative './services/twitter'
-require_relative './logger'
+require_relative './boot'
 
 client = TwitterApi.new
-t = Translate.new './translations.yml'
-successes = Logger.new 'success.txt'
-warnings = Logger.new 'warning.txt'
-errors = Logger.new 'errors.txt'
 
-client.parsed_tweets.each do |text|
-    begin
-        translation = t.translate text
-        successes.info translation
-    rescue NotImplementedError
-        warnings.warning text, 'Não houve alteração no seguinte texto:'
-    end
+client.parsed_tweets.each do |string|
+  begin
+    text = Text.new string
+    translation = Translator.translate text
+    Logger.success text.to_s, translation.to_s
+  rescue NotImplementedError
+    Logger.error text.to_s
+  end
 end

@@ -1,51 +1,46 @@
-vítima: 
+vítimas?: 
   one: uma pessoa que eu conheço 
   more: uns caras que eu conheço
-presidente:
+  gender: f
+president(e|a)s?:
   one: monarca
   more: monarcas
-coronavírus: 
+(o\s)?coronavírus: 
   always: herpes genital
   gender: n
-o coronavírus: 
-  always: a herpes genital
   number: one
-deputado: 
+deputad(o|a)s?: 
   one: espírito da floresta
   more: espíritos da floresta
-senador: 
+senador(a|es|as)?: 
   one: lorde-elfo
   more: lordes-elfo
-pesquisa: 
+pesquisas?: 
   always: estudo
-estudo: 
+estudos?: 
   one: post no tumblr
   more: posts no tumblr
-eleição: 
+eleiç(ão|ões): 
   one: competição de punheta
   more: competições de punheta
-carro: 
+carros?: 
   one: gato
   more: gatos
-elétrico: 
+elétric(o|a)s?: 
   one: atómico
   more: atómicos
-celular: 
-  one: pokédex
-  more: pokédex
+celular(es)?: 
+  always: pokédex
 supostamente: 
   always: talvez quem sabe
-bloco:
-  always: marcha das vadias
-blocos:
-  always: marchas das vadias
-morte:
+blocos?:
+  one: marcha das vadias
+  more: marchas das vadias
+mortes?:
   always: batimento de botas
   gender: m
-São Paulo:
-  always: SP
-SP:
-  always: túmulo do samba
+(SP|São\sPaulo):
+  always: Túmulo do Samba
   gender: m
 carnaval:
   always: orgia

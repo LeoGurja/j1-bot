@@ -1,2 +1,2 @@
-services/secret.yml
-logs/
+config/secret.yml
+logs/*.log
