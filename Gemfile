@@ -4,4 +4,5 @@ gem 'twitter'
 
 group :dev do
     gem 'solargraph'
+    gem 'byebug'
 end

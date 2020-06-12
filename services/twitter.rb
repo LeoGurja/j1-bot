@@ -14,8 +14,12 @@ class TwitterApi
     response.map do |tweet|
       text = remove_urls tweet.text
       text = remove_accounts text
-      text
+      text.chomp
     end
+  end
+
+  def method_missing(name, *args)
+    @api.send name, *args
   end
 
   def remove_urls text
