@@ -1,0 +1,8 @@
+carros?: 
+  one: gato
+  more: gatos
+elétric(o|a)s?: 
+  one: atómico
+  more: atómicos
+celular(es)?: 
+  always: pokédex

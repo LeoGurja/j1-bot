@@ -1,0 +1,8 @@
+SP:
+  always: Túmulo do Samba
+  gender: m
+São:
+  multi:
+    Paulo:
+      always: Túmulo do Samba
+      gender: m
