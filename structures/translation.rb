@@ -9,4 +9,8 @@ class Translation
     end
     nil
   end
+
+  def method_missing name, *args
+    @hash.send name, *args
+  end
 end

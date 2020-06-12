@@ -5,18 +5,14 @@ class Translator
   private_class_method :new
 
   def self.translate obj
-    if obj.is_a? Text
-      @translated = translate_text obj
-    elsif obj.is_a? Sentence
-      @translated = translate_sentence obj
-    else
-      @translated = translate_word obj
-    end
+    @original = obj
+    @result = Marshal.load(Marshal.dump(obj)) # creates a hard copy
+    translate_text @result
 
-    if @translated == obj
+    if @translated == @result
       raise NotImplementedError 
     end
-    @translated
+    @result
   end
 
   def self.translations
@@ -25,16 +21,26 @@ class Translator
 
   private
   def self.translate_text text
-    Text.new text.sentences.map { |sentence| translate_sentence sentence }
+    text.sentences.map! { |sentence| translate_sentence sentence }
+    text
   end
 
   def self.translate_sentence sentence
-    Sentence.new sentence.words.map { |word| translate_word word }
+    sentence.words.map! { |word| translate_word word }
+    sentence
   end
 
   def self.translate_word word
-    translation = @translations[word.to_s]
+    translation = @translations[word]
     return word unless translation
+
+    if translation['multi']
+      next_word = @result.next_word word
+      if translation['multi'][next_word]
+        @result.remove next_word
+        return translation['multi'][next_word]['always'] || translation['multi'][next_word][next_word.number]
+      end
+    end
 
     translation['always'] || translation[word.number]
   end

@@ -1,7 +1,7 @@
 class Sentence
   attr_accessor :words
 
-  def self.new sentence=nil
+  def self.new sentence
     return Sentence.create_from_string sentence if sentence.is_a? String
     super
   end
@@ -26,7 +26,33 @@ class Sentence
     true
   end
 
+  def remove word
+    @words.each_with_index do |w, i|
+      if w.object_id == word.object_id
+        return @words.delete_at i
+      end
+    end
+  end
+
+  def prev_word word
+    index = find_index(word)
+    return nil if index <= 0
+    @words[index - 1]
+  end
+
+  def next_word word
+    index = find_index(word)
+    return nil if index >= @words.length - 1
+    @words[index + 1]
+  end
+
   private
+  def find_index word
+    @words.each_with_index do |w, i|
+      return i if w.object_id == word.object_id
+    end
+  end
+
   def self.create_from_string string
     array = string.split ' '
     Sentence.new array

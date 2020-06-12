@@ -11,7 +11,6 @@ tweets.each do |string|
     unless Logger.already_posted? translation.to_s
       Logger.mark_as_posted translation.to_s
       Logger.success text.to_s, translation.to_s
-      puts 'postar'
     end
   rescue NotImplementedError
     Logger.error text.to_s
