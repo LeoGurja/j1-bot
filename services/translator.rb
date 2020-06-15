@@ -8,11 +8,6 @@ class Translator
     @original = obj
     @result = Marshal.load(Marshal.dump(obj)) # creates a hard copy
     translate_text @result
-
-    if @translated == @result
-      raise NotImplementedError 
-    end
-    @result
   end
 
   def self.translations
@@ -32,19 +27,22 @@ class Translator
 
   def self.translate_word word
     translation = @translations[word]
+    translation = get_multi_translation(word, Translation.new(translation['multi'])) if translation&.[]('multi')
     return word unless translation
-
-    if translation['multi']
-      next_word = @result.next_word word
-      if translation['multi'][next_word]
-        @result.remove next_word
-        return translation['multi'][next_word]['always'] || translation['multi'][next_word][next_word.number]
-      end
-    end
 
     translation['always'] || translation[word.number]
   end
 
+  def self.get_multi_translation word, translation
+    word = @result.next_word word
+    translation = Translation.new translation[word]
+    return unless word && translation
+    
+    translation = get_multi_translation(word, translation['multi']) if translation['multi']
+    @result.remove word if translation
+    translation
+  end
+  
   # TODO: readicionar tratamento de genero
   # def self.handle_gender index, gender
   #   return if index < 0

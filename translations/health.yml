@@ -2,9 +2,18 @@ coronavírus:
   always: herpes genital
   gender: n
   number: one
+covid:
+  multi:
+    '-':
+      multi:
+        '19':
+          always: herpes genital
 mortes?:
   always: batimento de botas
   gender: m
 vidas?:
   one: energia vital
   more: energias vitais
+máscaras?:
+  one: camisinha
+  more: camisinhas

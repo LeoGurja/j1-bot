@@ -22,11 +22,7 @@ class Text
   end
 
   def ==(text)
-    return false unless @sentences.length == text.sentences.length
-    for i in 0..@sentences.length do
-      return false unless @sentences[i] == text.sentences[i]
-    end
-    true
+    to_s == text.to_s
   end
 
   def remove word
@@ -36,15 +32,17 @@ class Text
   end
 
   def next_word word
-    @sentences.each do |sentence|
+    @sentences.each_with_index do |sentence, index|
       next_word = sentence.next_word word
+      return @sentences[index + 1].words[0] if next_word == -1 && @sentences[index + 1]
       return next_word if next_word
     end
   end
 
   def prev_word word
-    @sentences.each do |sentence|
+    @sentences.each_with_index do |sentence, index|
       prev_word = sentence.prev_word word
+      return @sentences[index - 1].words[-1] if prev_word == -1 && @sentences[index - 1] && index > 0
       return prev_word if prev_word
     end
   end

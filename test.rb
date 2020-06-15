@@ -1,9 +1,10 @@
 require_relative './boot'
 
 text = Text.new ARGV.first
-begin
-  translation = Translator.translate text
+
+translation = Translator.translate text
+unless text.to_s == translation.to_s
   puts "#{text} => #{translation}"
-rescue
+else
   puts text
 end

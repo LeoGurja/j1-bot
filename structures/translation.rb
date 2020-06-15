@@ -1,11 +1,16 @@
 class Translation
+  def self.new hash
+    return nil unless hash
+    super
+  end
+
   def initialize hash
     @hash = hash
   end
 
   def [](string)
     @hash.each do |key, value|
-      return value if string =~ Regexp.new(key, 'i')
+      return value if string =~ Regexp.new("^#{key}$", 'i')
     end
     nil
   end

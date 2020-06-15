@@ -19,11 +19,7 @@ class Sentence
   end
 
   def ==(sentence)
-    return false unless @words.length == sentence.words.length
-    for i in 0..@words.length do
-      return false unless @words[i] == sentence.words[i]
-    end
-    true
+    to_s == sentence.to_s
   end
 
   def remove word
@@ -36,13 +32,15 @@ class Sentence
 
   def prev_word word
     index = find_index(word)
-    return nil if index <= 0
+    return nil unless index
+    return -1 if index <= 0
     @words[index - 1]
   end
 
   def next_word word
     index = find_index(word)
-    return nil if index >= @words.length - 1
+    return nil unless index
+    return -1 if (@words.length - 1) <= index
     @words[index + 1]
   end
 
@@ -51,6 +49,7 @@ class Sentence
     @words.each_with_index do |w, i|
       return i if w.object_id == word.object_id
     end
+    nil
   end
 
   def self.create_from_string string
