@@ -10,3 +10,8 @@ operaç(ão|ões):
   more: gincanas
 recurso:
   always: penico
+tiroteios?:
+  one: sexo grupal
+  more: sexos grupais
+arquiva:
+  always: incinera

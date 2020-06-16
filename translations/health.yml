@@ -17,3 +17,6 @@ morreu?:
   always: entregou a alma ao diabo
 morreram:
   always: entregaram a alma ao diabo
+mortos?:
+  one: zumbi
+  more: zumbis

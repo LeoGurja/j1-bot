@@ -23,3 +23,6 @@ governos?:
 apoiador(es)?:
   one: stalker
   more: stalkers
+gabinetes?:
+  one: prostíbulo
+  more: prostíbulos
