@@ -12,10 +12,12 @@ class TwitterApi
   def parsed_tweets
     response = @api.user_timeline('g1')
     response.map do |tweet|
-      text = remove_urls tweet.text
-      text = remove_accounts text
-      text.chomp
+      clean_tweet tweet.text
     end
+  end
+
+  def clean_tweet text
+    remove_mentions_and_tags(remove_urls(text)).chomp
   end
 
   def method_missing(name, *args)
@@ -26,7 +28,7 @@ class TwitterApi
     text.gsub(/https:.*(\s|\z)/i, '').gsub(/glo\.bo\/.*(\s|\z)/i, '')
   end
 
-  def remove_accounts text
-    text.gsub(/@/, '')
+  def remove_mentions_and_tags text
+    text.gsub /@|#/, ''
   end
 end
