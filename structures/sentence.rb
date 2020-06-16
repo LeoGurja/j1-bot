@@ -28,16 +28,20 @@ class Sentence
 
   def prev_word word
     index = find_index(word)
-    return nil unless index
-    return -1 if index <= 0
-    @words[index - 1]
+    return nil unless index && index > 0
+
+    found_word = @words[index - 1]
+    return prev_word(found_word) if found_word&.punctuation?
+    found_word
   end
 
   def next_word word
     index = find_index(word)
     return nil unless index
-    return -1 if (@words.length - 1) <= index
-    @words[index + 1]
+
+    found_word = @words[index + 1]
+    return next_word(found_word) if found_word&.punctuation?
+    found_word
   end
 
   private

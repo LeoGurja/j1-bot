@@ -10,9 +10,13 @@ class Translation
 
   def [](string)
     @hash.each do |key, value|
-      return value if string =~ Regexp.new("^#{key}$", 'i')
+      return Translation.new(value) if string =~ Regexp.new("^#{key}$", 'i')
     end
     nil
+  end
+
+  def translate word
+    @hash['always'] || @hash[word.number]
   end
 
   def method_missing name, *args

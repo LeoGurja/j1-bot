@@ -21,18 +21,18 @@ class Translator
     return word if word.punctuation?
 
     translation = @translations[word]
-    translation = get_multi_translation(word, Translation.new(translation['multi'])) if translation&.[]('multi')
+    translation = get_multi_translation(word, translation) if translation&.[]('multi')
     return word unless translation
 
-    translation['always'] || translation[word.number]
+    translation.translate word
   end
 
   def self.get_multi_translation word, translation
     word = @result.next_word word
-    translation = Translation.new translation[word]
+    translation = translation[word]
     return unless word && translation
     
-    translation = get_multi_translation(word, translation['multi']) if translation['multi']
+    translation = get_multi_translation(word, translation) if translation['multi']
     @result.remove word if translation
     translation
   end

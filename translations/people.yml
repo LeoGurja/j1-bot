@@ -1,6 +1,12 @@
 Trump:
   always: Namorado de Jair
 Donald:
-  multi:
-    Trump:
-      always: Namorado de Jair
+  multi: true
+  Trump:
+    always: Namorado de Jair
+Luciano:
+  multi: true
+  Hang:
+    always: Velho da Van
+  Hulk:
+    always: Nareba Liberal
