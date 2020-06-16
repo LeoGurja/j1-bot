@@ -11,11 +11,7 @@ class Sentence
   end
 
   def to_s
-    @words.join(' ').strip
-  end
-
-  def punctuation?
-    @words.length == 1 && @words.first.punctuation?
+    @words.join.strip
   end
 
   def ==(sentence)
@@ -53,7 +49,7 @@ class Sentence
   end
 
   def self.create_from_string string
-    array = string.split ' '
+    array = string.split /([\.,!?:;'"…\s]+)/
     Sentence.new array
   end
 end

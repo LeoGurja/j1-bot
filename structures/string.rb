@@ -1,6 +1,6 @@
 class String
   def punctuation?
-    self =~ /[\.,\-'":;]+/
+    self =~ /([\.,!?:;'"…\s]+)/
   end
 
   def gender
@@ -11,13 +11,5 @@ class String
   def number
     translation = Translator.translations[self]
     translation&.[]('number') || end_with?('s') ? 'more' : 'one' # guess
-  end
-
-  def next_word word
-    nil
-  end
-
-  def prev_word word
-    nil
   end
 end

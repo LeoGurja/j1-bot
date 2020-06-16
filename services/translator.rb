@@ -1,13 +1,10 @@
-require 'yaml'
-require_relative '../structures/text'
-
 class Translator
   private_class_method :new
 
   def self.translate obj
     @original = obj
     @result = Marshal.load(Marshal.dump(obj)) # creates a hard copy
-    translate_text @result
+    translate_sentence @result
   end
 
   def self.translations
@@ -15,17 +12,14 @@ class Translator
   end
 
   private
-  def self.translate_text text
-    text.sentences.map! { |sentence| translate_sentence sentence }
-    text
-  end
-
   def self.translate_sentence sentence
     sentence.words.map! { |word| translate_word word }
     sentence
   end
 
   def self.translate_word word
+    return word if word.punctuation?
+
     translation = @translations[word]
     translation = get_multi_translation(word, Translation.new(translation['multi'])) if translation&.[]('multi')
     return word unless translation

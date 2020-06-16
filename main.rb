@@ -5,7 +5,7 @@ client = TwitterApi.new
 tweets = client.parsed_tweets
 
 tweets.each do |string|
-  text = Text.new string
+  text = Sentence.new string
   unless Logger.already_posted? text.to_s
     translation = Translator.translate text
     unless translation.to_s == text.to_s
