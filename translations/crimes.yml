@@ -2,3 +2,11 @@ vítimas?:
   one: uma pessoa que eu conheço 
   more: uns caras que eu conheço
   gender: f
+investigaç(ão|ões):
+  one: babado
+  more: babados
+operaç(ão|ões):
+  one: gincana
+  more: gincanas
+recurso:
+  always: penico

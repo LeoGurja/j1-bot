@@ -1,14 +1,8 @@
-coronavírus: 
+(coronavírus|covid(-19)?): 
   always: herpes genital
   gender: n
   number: one
-covid:
-  multi:
-    '-':
-      multi:
-        '19':
-          always: herpes genital
-mortes?:
+(morte|óbito)s?:
   always: batimento de botas
   gender: m
 vidas?:
@@ -17,3 +11,9 @@ vidas?:
 máscaras?:
   one: camisinha
   more: camisinhas
+morrer:
+  always: entregar a alma ao diabo
+morreu?:
+  always: entregou a alma ao diabo
+morreram:
+  always: entregaram a alma ao diabo

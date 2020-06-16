@@ -1,2 +1,12 @@
 supostamente: 
-  always: talvez quem sabe
+  always: com certeza
+(menino|home(m|n))s?:
+  one: boy
+  more: boys
+universidades?:
+  one: academia de jiu-jitsu
+  more: academia de jiu-jitsu
+choque:
+  always: S H O C K
+imprensa:
+  always: manipulação

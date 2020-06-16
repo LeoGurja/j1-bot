@@ -10,3 +10,16 @@ senador(a|es|as)?:
 eleiç(ão|ões): 
   one: competição de punheta
   more: competições de punheta
+justiça:
+  always: babá do bolsonaro
+bolsonaristas?:
+  one: problemático
+  more: problemáticos
+stf:
+  always: clube da luluzinha
+governos?:
+  one: mamada coletiva
+  more: mamadas coletivas
+apoiador(es)?:
+  one: stalker
+  more: stalkers

@@ -1,0 +1,6 @@
+Trump:
+  always: Namorado de Jair
+Donald:
+  multi:
+    Trump:
+      always: Namorado de Jair

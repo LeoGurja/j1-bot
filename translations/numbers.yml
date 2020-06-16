@@ -1,0 +1,5 @@
+mil:
+  always: milhões
+milh(ão|ões):
+  one: bilhão
+  more: bilhões
