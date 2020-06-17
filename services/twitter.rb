@@ -17,7 +17,7 @@ class TwitterApi
   end
 
   def clean_tweet text
-    remove_mentions_and_tags(remove_urls(text)).chomp
+    remove_mentions_and_tags(remove_retweets(remove_urls(text))).chomp
   end
 
   def method_missing(name, *args)
@@ -26,6 +26,10 @@ class TwitterApi
 
   def remove_urls text
     text.gsub(/https:.*(\s|\z)/i, '').gsub(/glo\.bo\/.*(\s|\z)/i, '')
+  end
+
+  def remove_retweets text
+  text.gsub(/^RT\s.*:/, '')
   end
 
   def remove_mentions_and_tags text
