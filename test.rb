@@ -1,5 +1,6 @@
 require_relative './boot'
 
+debugger
 text = Sentence.new ARGV.first
 
 translation = Translator.translate text

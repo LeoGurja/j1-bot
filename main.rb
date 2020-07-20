@@ -2,14 +2,13 @@ require_relative './boot'
 
 client = TwitterApi.new
 
-def post_tweets
+def post_tweets(client)
   tweets = client.parsed_tweets
-
+  posted = 0
+  puts 'postando tweets...'
   tweets.each do |string|
-    if Logger.already_posted? text
-      Logger.warning "Já postado: #{text}"
-      next
-    end
+    break if posted >= 3
+    next if Logger.already_posted? string
 
     text = Sentence.new string
     translation = Translator.translate text
@@ -19,23 +18,24 @@ def post_tweets
       next
     end
 
-    Logger.mark_as_posted translation.to_s
+    Logger.mark_as_posted string
     Logger.success text.to_s, translation.to_s
     client.update translation.to_s
+    posted += 1
   end
-
+  puts "#{posted}/#{tweets.length} tweets postados"
   Logger.clean_already_posted
 end
 
-def every_15_minutes
+def every_5_minutes
   last = Time.now
   while true
     yield
     now = Time.now
-    _next = [last + 900,now].max
+    _next = [last + 300,now].max
     sleep (_next - now)
     last = _next
   end
 end
 
-every_15_minutes { post_tweets }
+every_5_minutes { post_tweets(client) }

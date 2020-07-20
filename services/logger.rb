@@ -6,10 +6,12 @@ class Logger
   ALREADY_POSTED_FILE = 'logs/already_posted.log'
 
   def self.success original, translation
+    puts "postado: #{translation}"
     write "#{original}:\n\t#{translation}", SUCCESS_FILE
   end
 
   def self.error text
+    puts "ERRO: #{text}"
     write text, NOT_CHANGED_FILE
   end
 
@@ -27,6 +29,7 @@ class Logger
   end
 
   def self.clean_already_posted
+    puts 'checksums antigas limpas'
     lines = File.read(ALREADY_POSTED_FILE).split("\n")
     new_file = ''
     File.open(ALREADY_POSTED_FILE, 'w') do |file|
